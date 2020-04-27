@@ -24,6 +24,8 @@ namespace TestProgram
             int maxValue = ExplorMaxValue(numbers);
 
             Console.WriteLine($"Max value of array is {maxValue}");
+
+            Console.ReadLine();
         }
 
         static int[] ConvAndAssign(string[] words)
