@@ -21,7 +21,7 @@ namespace TestProgram
 
             int[] numbers = ConvAndAssign(words);
 
-            int[] sortedArray = ExplorMaxValue(numbers);
+            int[] sortedArray = ExploreMaxValue(numbers);
 
             PrintSortedArray(sortedArray);
 
@@ -41,7 +41,7 @@ namespace TestProgram
             }
             return numbers;
         }
-        static int[] ExplorMaxValue(int[] values)
+        static int[] ExploreMaxValue(int[] values)
         {
             int folder = 0;
 
