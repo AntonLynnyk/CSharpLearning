@@ -28,9 +28,6 @@ namespace TestProgram
             Console.ReadLine();
 
             BubleSort();
-
-
-
         }
 
         static int[] ConvAndAssign(string[] words)
