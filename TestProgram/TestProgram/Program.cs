@@ -26,6 +26,11 @@ namespace TestProgram
             Console.WriteLine($"Max value of array is {maxValue}");
 
             Console.ReadLine();
+
+            BubleSort();
+
+
+
         }
 
         static int[] ConvAndAssign(string[] words)
@@ -55,6 +60,11 @@ namespace TestProgram
                 }
             }
             return maxValue;
+        }
+
+        static void BubleSort()
+        {
+            // Some code implementation from Sergii
         }
     }
 }
