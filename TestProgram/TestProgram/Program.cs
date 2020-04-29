@@ -13,7 +13,7 @@ namespace TestProgram
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter your string: ");
+            Console.WriteLine("Enter array of numbers: ");
 
             string phrase = Console.ReadLine();
 
@@ -21,13 +21,12 @@ namespace TestProgram
 
             int[] numbers = ConvAndAssign(words);
 
-            int maxValue = ExplorMaxValue(numbers);
+            int[] sortedArray = ExploreMaxValue(numbers);
 
-            Console.WriteLine($"Max value of array is {maxValue}");
+            PrintSortedArray(sortedArray);
 
             Console.ReadLine();
         }
-
         static int[] ConvAndAssign(string[] words)
         {
             int[] numbers = new int[words.Length];
@@ -42,19 +41,34 @@ namespace TestProgram
             }
             return numbers;
         }
-
-        static int ExplorMaxValue(int[] values)
+        static int[] ExploreMaxValue(int[] values)
         {
-            int maxValue = values[0];
+            int folder = 0;
 
-            for (int i = 1; i < values.Length; i++)
+            for (int j = 1; j < values.Length - 1; j++)
             {
-                if (values[i] > maxValue)
+                for (int i = 0; i < values.Length - 1; i++)
                 {
-                    maxValue = values[i];
+                    if (values[i] > values[i + 1])
+                    {
+                        folder = values[i];
+
+                        values[i] = values[i + 1];
+
+                        values[i + 1] = folder;
+                    }
                 }
             }
-            return maxValue;
+            return values;
+        }
+        static void PrintSortedArray(int[] arrayForPrint)
+        {
+            Console.WriteLine("Sorted array: ");
+
+            for (int i = 0; i < arrayForPrint.Length; i++)
+            {
+                Console.Write($"{arrayForPrint[i]} ");
+            }
         }
     }
 }
