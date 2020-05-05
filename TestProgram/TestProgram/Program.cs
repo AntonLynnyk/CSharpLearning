@@ -19,7 +19,7 @@ namespace TestProgram
 
             string[] words = phrase.Split(' ');
 
-            int[] numbers = ConvAndAssign(words);
+            int[] numbers = ConvertAndAssign(words);
 
             int[] sortedArray = ExploreMaxValue(numbers);
 
@@ -27,17 +27,28 @@ namespace TestProgram
 
             Console.ReadLine();
         }
-        static int[] ConvAndAssign(string[] words)
+        static int[] ConvertAndAssign(string[] words)
         {
             int[] numbers = new int[words.Length];
 
             int number;
 
+            int[] error = {0};
+
             for (int i = 0; i < words.Length; i++)
             {
-                number = Int32.Parse(words[i]);
+                if (Int32.TryParse(words[i], out int x))
+                {
+                    number = Int32.Parse(words[i]);
 
-                numbers[i] = number;
+                    numbers[i] = number;
+                }
+                else
+                {
+                    Console.WriteLine("Use only numbers, not strings!");
+
+                    return error;
+                }
             }
             return numbers;
         }
@@ -63,11 +74,18 @@ namespace TestProgram
         }
         static void PrintSortedArray(int[] arrayForPrint)
         {
-            Console.WriteLine("Sorted array: ");
-
-            for (int i = 0; i < arrayForPrint.Length; i++)
+            if (arrayForPrint.Length == 1)
             {
-                Console.Write($"{arrayForPrint[i]} ");
+                Console.WriteLine("Reboot the Program!");
+            }
+            else
+            {
+                Console.WriteLine("Sorted array: ");
+
+                for (int i = 0; i < arrayForPrint.Length; i++)
+                {
+                    Console.Write($"{arrayForPrint[i]} ");
+                }
             }
         }
     }
