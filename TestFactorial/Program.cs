@@ -12,32 +12,47 @@ namespace TestFactorial
         {
             Console.WriteLine("Enter number of factorial: ");
 
-            try
+            int tryTimes = 10;
+
+            while (tryTimes != 0)
             {
-                int number = int.Parse(Console.ReadLine());
+                try
+                {
+                    int number = int.Parse(Console.ReadLine());
 
-                int factorial = FindingFactorialWithLoop(number);
+                    int factorial = Loop(number);
 
-                Console.WriteLine($"The factorial of {number} is {factorial}");
-            }
-            catch (System.FormatException ex)
-            {
-                Console.WriteLine($"{ex.Message}");
+                    int factorial1 = Recursion(number);
 
-                Console.WriteLine("You should enter only numbers, not strings!");
+                    if (factorial == factorial1)
+                    {
+                        Console.WriteLine($"The factorial of {number} is {factorial}");
+                    }
+                }
+                catch (System.FormatException ex)
+                {
+                    if (tryTimes == 1)
+                    {
 
-                int number1 = int.Parse(Console.ReadLine());
+                        Console.WriteLine("Try next time");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"{ex.Message}");
 
-                int factorial1 = FindingFactorial(number1);
+                        Console.WriteLine("You should enter only numbers, not strings!");
 
-                Console.WriteLine($"The factorial of {number1} is {factorial1}");
-            }
-            finally
-            {
-                Console.ReadLine();
+                        Console.WriteLine($"You have {tryTimes - 1} more attempts");
+                    }
+                }
+                finally
+                {
+                    tryTimes--;
+                }
             }
         }
-        static int FindingFactorial(int value)
+
+        static int Recursion(int value) 
         {
             if (value == 1)
             {
@@ -45,15 +60,17 @@ namespace TestFactorial
             }
             else
             {
-                return value = value * FindingFactorial(value - 1);
+                return value = value * Recursion(value - 1);
             }
         }
-        static int FindingFactorialWithLoop(int value)
+
+        static int Loop(int value) 
         {
             for (int i = value; i > 1; i--)
             {
-                    value *= (i - 1);
+                value *= (i - 1);
             }
+
             return value;
         }
     }
