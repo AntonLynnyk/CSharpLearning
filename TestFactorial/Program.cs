@@ -20,13 +20,17 @@ namespace TestFactorial
                 {
                     int number = int.Parse(Console.ReadLine());
 
-                    int factorial = Loop(number);
+                    int factorialLoop = GetFactorialLoop(number);
 
-                    int factorial1 = Recursion(number);
+                    int factorialRecursion = GetFactorialRecunsion(number);
 
-                    if (factorial == factorial1)
+                    if (factorialLoop == factorialRecursion)
                     {
-                        Console.WriteLine($"The factorial of {number} is {factorial}");
+                        Console.WriteLine($"The factorial of {number} is {factorialLoop}");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Something get wrong, please try again");
                     }
                 }
                 catch (System.FormatException ex)
@@ -34,7 +38,7 @@ namespace TestFactorial
                     if (tryTimes == 1)
                     {
 
-                        Console.WriteLine("Try next time");
+                        Console.WriteLine("You have only one try left!");
                     }
                     else
                     {
@@ -52,7 +56,7 @@ namespace TestFactorial
             }
         }
 
-        static int Recursion(int value) 
+        static int GetFactorialRecunsion(int value) 
         {
             if (value == 1)
             {
@@ -60,11 +64,11 @@ namespace TestFactorial
             }
             else
             {
-                return value = value * Recursion(value - 1);
+                return value = value * GetFactorialRecunsion(value - 1);
             }
         }
 
-        static int Loop(int value) 
+        static int GetFactorialLoop(int value) 
         {
             for (int i = value; i > 1; i--)
             {
