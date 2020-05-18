@@ -37,7 +37,6 @@ namespace TestFactorial
                 {
                     if (tryTimes == 1)
                     {
-
                         Console.WriteLine("You have only one try left!");
                     }
                     else
