@@ -8,26 +8,27 @@ namespace Palindrome
 {
     public static class IsPolindrome
     {
-        public static int DeterminePolindrome(char[] arrayLetters)
+        public static bool DeterminePolindrome(string s)
         {
-            int k = 0;
-
-            for (int i = arrayLetters.Length - 1; i >= 0; i--)
+            if (s == "")
             {
-                if (arrayLetters[k] == arrayLetters[i])
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+        public static bool DeterminePolindrome(char[] arrayLetters)
+        {
+            for (int i = arrayLetters.Length - 1, k = 0; i >= 0; i--, k++)
+            {
+                if (arrayLetters[k] != arrayLetters[i])
                 {
-                    k++;
-                }
-                else
-                {
-                    return 0;
+                    return false;
                 }
             }
-            return 1;
+            return true;
         }
-
-        
-
-            
     }
 }

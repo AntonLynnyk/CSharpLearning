@@ -10,7 +10,7 @@ namespace Palindrome
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("With this app you can determine that your entered word is polindrome or not");
+            Console.WriteLine("With this app you can determine whether your entered word is polindrome or not");
 
             Console.WriteLine("Enter you word:");
 
@@ -18,9 +18,18 @@ namespace Palindrome
 
             char[] arrayLetters = word.ToCharArray();
 
-            int i = IsPolindrome.DeterminePolindrome(arrayLetters);
+            bool isPolindrome;
 
-            if (i == 1)
+            if (arrayLetters.Length == 1)
+            {
+                isPolindrome = IsPolindrome.DeterminePolindrome(word);
+            }
+            else
+            {
+                isPolindrome = IsPolindrome.DeterminePolindrome(arrayLetters);
+            }
+
+            if (isPolindrome)
             {
                 Console.WriteLine("Your word is a polindrome");
             }
