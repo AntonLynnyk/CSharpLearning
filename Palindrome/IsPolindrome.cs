@@ -8,18 +8,25 @@ namespace Palindrome
 {
     public static class IsPolindrome
     {
-        public static bool DeterminePolindrome(string s)
+        public static bool DeterminePolindrome(string enteredString)
         {
-            if (s == "")
+            if (enteredString == "")
             {
                 return false;
             }
+            else if (enteredString.Contains(" "))
+            {
+                string stringWhithoutSpaces = enteredString.Replace(" ", String.Empty);
+
+                return DeterminePolindrome(stringWhithoutSpaces.ToCharArray());
+            }
             else
             {
-                return true;
+                return DeterminePolindrome(enteredString.ToCharArray());
             }
         }
-        public static bool DeterminePolindrome(char[] arrayLetters)
+
+        private static bool DeterminePolindrome(char[] arrayLetters)
         {
             for (int i = arrayLetters.Length - 1, k = 0; i >= 0; i--, k++)
             {

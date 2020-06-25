@@ -16,18 +16,7 @@ namespace Palindrome
 
             string word = Console.ReadLine();
 
-            char[] arrayLetters = word.ToCharArray();
-
-            bool isPolindrome;
-
-            if (arrayLetters.Length == 1)
-            {
-                isPolindrome = IsPolindrome.DeterminePolindrome(word);
-            }
-            else
-            {
-                isPolindrome = IsPolindrome.DeterminePolindrome(arrayLetters);
-            }
+            bool isPolindrome = IsPolindrome.DeterminePolindrome(word);
 
             if (isPolindrome)
             {
