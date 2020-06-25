@@ -56,9 +56,26 @@ namespace UnitTests
 
             MyAssert.IsTrue(result);
         }
+        [TestMethod]
 
-        //public void DeterminePolindrome_StringIncludeSpace_ReturnsFalse() { }
+        public void DeterminePolindrome_StringIncludesSpaces_ReturnsFalse() 
+        {
+            string includesSpaces = "ab c d cba";
 
-        public void DeterminePolindrome_CorrectPolindromeIncludesSymbols_ReturnsTrue() { }
+            bool result = IsPolindrome.DeterminePolindrome(includesSpaces);
+
+            MyAssert.IsTrue(result);
+            
+        }
+
+        [TestMethod]
+        public void DeterminePolindrome_CorrectPolindromeIncludesSymbols_ReturnsTrue() 
+        {
+            string includesSymbols = "@#$%%$#@";
+
+            bool result = IsPolindrome.DeterminePolindrome(includesSymbols);
+
+            MyAssert.IsTrue(result);
+        }
     }
 }
